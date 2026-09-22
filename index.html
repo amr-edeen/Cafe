@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean & Brew Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: { 50:"#faf7f2", 100:"#f1e8dc", 600:"#8b5e3c", 700:"#6f472d", 900:"#3d281b" }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-coffee-50 text-stone-800">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-black text-coffee-700">☕ Bean & Brew</a>
+      <div id="desktopNav" class="hidden md:flex gap-6 font-medium">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#menu">Menu</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="icon-btn" title="Dark mode">🌙</button>
+        <button id="cartBtn" class="icon-btn relative" title="Cart">🛒<span id="cartCount" class="badge">0</span></button>
+        <button id="mobileBtn" class="md:hidden icon-btn">☰</button>
+      </div>
+    </nav>
+    <div id="mobileNav" class="hidden md:hidden px-5 pb-4 space-y-2">
+      <a class="block py-2" href="#home">Home</a>
+      <a class="block py-2" href="#menu">Menu</a>
+      <a class="block py-2" href="#about">About</a>
+      <a class="block py-2" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="max-w-7xl mx-auto px-5 py-24 md:py-32">
+        <div class="max-w-2xl">
+          <p class="uppercase tracking-[.3em] text-amber-200 font-bold mb-4">Fresh • Warm • Local</p>
+          <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">Your daily cup of happiness.</h1>
+          <p class="mt-6 text-stone-200 text-lg">Fresh coffee, delicious food and a comfortable place to work, study and relax.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#menu" class="btn-primary">Explore Menu</a>
+            <a href="#contact" class="btn-secondary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-5 py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat"><b>25+</b><span>Menu Items</span></div>
+      <div class="stat"><b>4.9★</b><span>Customer Rating</span></div>
+      <div class="stat"><b>8 AM</b><span>Open Daily</span></div>
+      <div class="stat"><b>100%</b><span>Fresh Beans</span></div>
+    </section>
+
+    <section id="menu" class="max-w-7xl mx-auto px-5 py-16">
+      <div class="text-center mb-10">
+        <p class="section-kicker">Our Menu</p>
+        <h2 class="section-title">Choose your favorite</h2>
+        <p class="text-stone-500 mt-3">Search, filter and add items to your cart.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-3 mb-8">
+        <input id="searchInput" class="input flex-1" placeholder="Search coffee, burger, cake...">
+        <select id="categoryFilter" class="input md:w-56">
+          <option value="all">All categories</option>
+          <option value="coffee">Coffee</option>
+          <option value="food">Food</option>
+          <option value="dessert">Dessert</option>
+          <option value="cold">Cold Drinks</option>
+        </select>
+      </div>
+      <div id="products" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <p id="emptyProducts" class="hidden text-center py-12 text-stone-500">No products found.</p>
+    </section>
+
+    <section id="about" class="bg-stone-900 text-white">
+      <div class="max-w-7xl mx-auto px-5 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="section-kicker text-amber-400">About Us</p>
+          <h2 class="text-4xl font-black mt-2">A small café with a big heart.</h2>
+          <p class="mt-5 text-stone-300 leading-8">Bean & Brew is a demo café project built with HTML, CSS, JavaScript and Tailwind CSS. It includes a responsive interface, product filtering, shopping cart, local storage and a simple checkout flow.</p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-gradient-to-br from-amber-700 to-stone-800 p-8 shadow-2xl">
+          <div class="text-7xl">☕</div>
+          <h3 class="text-2xl font-bold mt-5">Made for learning</h3>
+          <p class="text-stone-300 mt-2">A practical portfolio project you can continue improving and publish on GitHub.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-3xl mx-auto px-5 py-20">
+      <div class="text-center mb-8">
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Send us a message</h2>
+      </div>
+      <form id="contactForm" class="card p-6 space-y-4">
+        <input id="name" class="input" placeholder="Your name" required>
+        <input id="email" type="email" class="input" placeholder="Email address" required>
+        <textarea id="message" class="input min-h-32" placeholder="Your message" required></textarea>
+        <button class="btn-primary w-full">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-stone-950 text-stone-300 py-8 text-center">
+    <p>© <span id="year"></span> Bean & Brew Café. Built with HTML, CSS, JavaScript & Tailwind CSS.</p>
+  </footer>
+
+  <aside id="cartPanel" class="fixed right-0 top-0 h-full w-full sm:w-96 bg-white dark-panel z-[60] shadow-2xl translate-x-full transition-transform">
+    <div class="p-5 border-b flex justify-between items-center">
+      <h2 class="text-xl font-bold">Your Cart</h2><button id="closeCart" class="icon-btn">✕</button>
+    </div>
+    <div id="cartItems" class="p-5 space-y-4 overflow-y-auto h-[65%]"></div>
+    <div class="p-5 border-t">
+      <div class="flex justify-between text-lg font-bold"><span>Total</span><span>$<span id="cartTotal">0.00</span></span></div>
+      <button id="checkoutBtn" class="btn-primary w-full mt-4">Checkout</button>
+      <button id="clearCart" class="w-full mt-2 py-3 rounded-xl border">Clear Cart</button>
+    </div>
+  </aside>
+  <div id="overlay" class="hidden fixed inset-0 bg-black/50 z-50"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
